@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main minh-100vh" id="top">
+  <!-- ============================================-->
+  <!-- <section> begin ============================-->
+  <!-- ============================================-->
+  <section class="py-0" id="page-about">
+    <div class="container-fluid">
+      <div class="row">
+        {% if notice.image %}
+        <div class="col-lg-5 px-0 order-lg-2">
+          <div class="sticky-top h-lg-100vh py-9">
+            <!--사진 넣는소스-->
+            <div class="bg-holder" style="background-image:url({{notice.image.url}});" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}'>
+            </div>
+            <!--/.bg-holder-->
+          </div>
+        </div>
+        {% endif %}
+        <div class="col-lg-7 bg-white py-6">
+          <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-lg-10">
+            <div class="col-12">
+              <div class="row">
+                <div class="col">
+                  <a class="text-sans-serif text-500" href="#">{{notice.created_at|date:"Y. m. d"}}</a>
+                </div>
+              </div>
+              <h3 class="mt-4">{{notice.title}}</h3>
+              <p class="mt-4" style="font-family: 'Malgun Gothic';">{{notice.content|linebreaks}}</p>
+            </div>
+            <div class="col-12 mt-8">
+              <a class="btn btn-link pl-0" href="{% url 'notice:index' %}">돌아가기<span class="d-inline-block ml-1">&xrarr;</span></a>
+            </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+
+  </section>
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+
+</main>
+<!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

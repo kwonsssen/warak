@@ -1,0 +1,128 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content%}
+
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main minh-100vh" id="top">
+  <!-- ============================================-->
+  <!-- <section> begin ============================-->
+  <section id="page-cart" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-left","delay":0.4}'>
+
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col" style="margin-bottom: 5%;mar">
+          <h1 class="text-underline d-inline fs-3 fs-md-5">Notice</h1>
+        </div>
+      </div>
+      <div class="row border-bottom border-300">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-auto">
+              <a href="#"><span class="fas fa-times fs-0 fs-md-1 fs-lg-2 invisible"></span></a>
+            </div>
+            <div class="col">
+              <h5 class="fs--2 ls text-uppercase">내용</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col-6 text-right" style="padding-right: 8%;">
+              <h5 class="fs--2 ls text-right">작성일</h5>
+            </div>
+            <div class="col-6 text-right">
+              <h5 class="fs--2 ls text-uppercase">작성자</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% for notice in notice_page %}
+      <div class="row align-items-center py-3 border-bottom border-300">
+        <div class="col-sm-7">
+          <div class="row align-items-center">
+            <div class="col">
+              <div class="row no-gutters align-items-center">
+                <div class="col-8 mt-2">
+                  <a class="text-black" href="{% url 'notice:detail' notice.pk %}">
+                    <h5 class="font-weight-bold mb-0">{{ notice.title}}</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 mt-4 mt-sm-0">
+          <div class="row align-items-center justify-content-end">
+            <div class="col-3 col-sm-6 text-right text-sm-center">
+              <div class="form-group mb-0">
+                <h6 class="fs-0 font-weight-normal mb-0">{{ notice.created_at|date:"Y.m.d" }}</h6>
+              </div>
+            </div>
+            <div class="col-3 col-sm-6 text-right">
+              <h6 class="fs-0 font-weight-normal mb-0">관리자</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+      <div style="margin-top: 10%;">
+        <nav aria-label="Blog Pagination">
+              <ul class="pagination justify-content-center">
+                
+                <li class="page-item d-none d-lg-block">
+                  <a class="page-link" href="?page=1">First</a>
+                </li>
+                <!-- ===============================================-->
+                <!-- 이전버튼 [ 이전 페이지가 있다면/없다면 ]-->
+                <!-- ===============================================-->
+                {% if notice_page.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ notice_page.previous_page_number }}" aria-label="Previous"><span class="fa fa-caret-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous"><span class="fa fa-caret-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a>
+                </li>
+                {% endif %}
+
+                {% for page in page_range %}
+                <li class="page-item {% if page == notice_page.number %} active{% endif %}">
+                  <a class="page-link" href="?page={{page}}">{{ page }}</a>
+                </li>
+                {% endfor %}
+                
+                {% if notice_page.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ notice_page.next_page_number }}" aria-label="Next"><span class="fa fa-caret-right" aria-hidden="true"></span><span class="sr-only">  Next</span></a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next"><span class="fa fa-caret-right" aria-hidden="true"></span><span class="sr-only">  Next</span></a>
+                </li>
+                {% endif %}
+                <li class="page-item d-none d-lg-block">
+                  <a class="page-link" href="?page={{ max_index }}">Last</a>
+                </li>
+              </ul>
+            </nav>
+      </div>
+
+      
+      
+      
+    </div>
+    <!-- end of .container-->
+
+  </section>
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+
+
+</main>
+<!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+{% endblock content %}

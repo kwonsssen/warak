@@ -1,0 +1,89 @@
+.intro_p{
+	margin-bottom: 3px;
+	line-height: 20px;
+	font-size: 80%;
+	font-weight: bold;
+	padding-bottom: 1px;
+}
+
+h2{
+	text-align: center;
+	margin-bottom: 10%;
+}
+
+.apply-img{
+	height:70em !important;
+	width: 100%;
+	
+}
+
+.text_t{
+	color: black !important;
+	font-size: 135% !important;
+}
+
+.school::placeholder {
+  color: black;
+}
+.text_apply{
+	font-size: 130% !important;
+}
+
+@media (max-width: 576px) {
+	#apply_title{
+		margin-top: 10% !important;
+		font-size: 250% !important;
+	}
+	.apply-img{
+		height: 500px !important;
+		width: 100%;
+	}
+	.text_apply{
+	font-size: 100% !important;
+}
+
+}
+
+@media (min-width: 576px) {
+  #apply_title{
+		margin-top: 5% !important;
+		font-size: 250% !important;
+	}
+	.apply-img{
+	height: 450px !important;
+	width: 100%;
+	}
+}
+
+@media (min-width: 992px) {
+  #apply_title{
+		margin-top: 5% !important;
+		font-size: 250% !important;
+	}
+	.apply-img{
+	height: 70em !important;
+	width: 100%;
+	}
+}
+
+@media (min-width: 1024px) {
+  #apply_title{
+		margin-top: 5% !important;
+		font-size: 250% !important;
+	}
+	.apply-img{
+	height:50em !important;
+	width: 100%;
+	}
+}
+
+@media (min-width: 1700px) {
+  #apply_title{
+		margin-top: 5% !important;
+		font-size: 250% !important;
+	}
+	.apply-img{
+	height:71em !important;
+	width: 100%;
+	}
+}

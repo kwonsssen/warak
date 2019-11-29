@@ -1,0 +1,146 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block style %}
+<link href="{% static 'lib/owl.carousel/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'lib/lightbox2/css/lightbox.css' %}" rel="stylesheet">
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+<!-- Compiled and minified JavaScript 알림 기능 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+{% endblock style %}
+{% block content %}
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main minh-100vh" id="top">
+
+  <!-- ============================================-->
+  <!-- Preloader ==================================-->
+  <div class="preloader" id="preloader">
+    <div class="loader">
+      <div class="line-scale-pulse-out-rapid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================-->
+  <!-- End of Preloader ===========================-->
+
+
+  <!-- ============================================-->
+  <!-- <section> begin ============================-->
+  <section class="py-0" id="page-contact">
+    <div class="container-fluid">
+      <div class="row">
+        <div style="height: 80%;" class="col-lg-6 bg-white pt-8 pb-4 pt-lg-8">
+          <div class="row h-50 align-items-center justify-content-center">
+            <div style="" class="col-lg-10" data-zanim-lg='{"animation":"slide-left","delay":0.6}' data-zanim-trigger="scroll">
+              <h1 id="apply_title" class="text-underline d-inline-block mb-lg-3">{{title}}</h1>
+              {% if is_page == 1 %}
+              <p class="text_apply" style="font-family: HANYheadB;">청소년들에게 학과나 전공을 소개하고<br/>
+                교육 프로그램 운영을 돕는 <span class="font-weight-bold text-black">대학생 멘토</span><br/>
+                청소년들의 진로 및 직업 상담을 돕는 <span class="font-weight-bold text-black">시니어 멘토</span>
+              </p>
+              {% elif  is_page == 2 %}
+              <p class="text_apply" style="font-family: HANYheadB;">
+                와락의 교육 프로그램 및 일터 업무를 지원하는<br/>
+                <span class="font-weight-bold text-black">대학생 자원봉사</span><br/>
+                <span class="font-weight-bold text-black">일반인 자원봉사</span>
+              </p>
+              {% else %}
+              <p class="text_apply" style="font-family: HANYheadB;">
+                청소년들에게 현장직업체험을 제공하기 위한<br/>
+                <span class="font-weight-bold text-black">기관</span> 및 <span class="font-weight-bold text-black">사업장</span>
+              </p>
+              {% endif %}   
+              <p class="font-weight-bold mb-1" style="font-family: HANYheadB;color: black;margin-top: 10%;"><img style="float: left;" src="{% static 'img/phone.png' %}"> <span class="ml-2 font-weight-normal">&nbsp;02-6238-2020~2<br>&emsp;02-2212-2027</span></p>
+              <p class="font-weight-bold mb-1" style="font-family: HANYheadB;color: black;"><img src="{% static 'img/mail.png' %}"> <span class="ml-2 font-weight-normal">Su.dongdaemun@cescenter.net</span></p>
+              
+              <div class="mt-3" style="margin-top: 10% !important;">
+                <a class="btn btn-dark btn-sm mr-2" href="https://www.instagram.com/ddm_warak/"><span class="fab fa-instagram" data-fa-transform="grow-6"></span></a>
+                <a class="btn btn-dark btn-sm mr-2" href="https://pf.kakao.com/_qxexoLV"><span class="far fa-comment-dots" data-fa-transform="grow-6"></span></a>
+              </div>
+              
+              <form style="margin-top: 20%;" class="zform" method="POST">
+                {% csrf_token %}
+                <input class="form-control border-300 mt-3" name="name" type="text" placeholder="신청인 이름">
+                <input class="form-control border-300 mt-3" name="telephone" type="tel" placeholder="연락처">
+                <input class="form-control border-300 mt-3 school" name="schoolinfo" type="text" placeholder="학교 및 학년">
+                <input class="form-control border-300 mt-3" name="email" type="email" placeholder="이메일">
+                <textarea class="form-control border-300 mt-3" name="content" rows="11" placeholder="신청내용" required></textarea>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" name="info_agree">
+                  <label class="form-check-label" for="exampleCheck1">개인 정보 제공 및 이용에 동의 합니다 (필수)</label>
+                </div>
+                <button class="btn btn-block btn-dark mt-4" type="submit">신청하기<span class="fa fa-paper-plane ml-1"></span></button>
+                <div class="zform-feedback mt-4"></div>
+              </form>
+              
+            
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 px-0">
+          <div class="sticky-top ovrflow-hidden-y">
+            <img class="apply-img" src="{% static static_photo %}" alt="apply 사진">
+          </div> 
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+  </section>
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+
+
+</main>
+<!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+<!--===============================================-->
+<!--    Modal for language selection-->
+<!--===============================================-->
+<div class="remodal bg-black remodal-select-language" data-remodal-id="language">
+  <div class="remodal-close" data-remodal-action="close"></div>
+  <ul class="list-unstyled pl-0 my-0 py-4 text-sans-serif">
+    <li>
+      <a class="pt-1 d-block text-white font-weight-semi-bold" href="#">English</a>
+    </li>
+    <li>
+      <a class="pt-1 d-block text-500" href="#">Français</a>
+    </li>
+    <li>
+      <a class="pt-1 d-block text-500" href="page-rtl.html">عربى</a>
+    </li>
+    <li>
+      <a class="pt-1 d-block text-500" href="#">Deutsche</a>
+    </li>
+  </ul>
+</div>
+<style>
+    #toast-message{
+      position: fixed;
+      bottom: 0;
+      right: 65%;
+      width:30%;
+    }
+    </style>
+    <script>
+      {% if messages %}
+        {% for message in messages %}
+          var toastHTML =  '<div id="toast-message" class="alert alert-dark" role="alert">{{message}}</div>'
+          M.toast({html: toastHTML, classes: 'rounded'});
+        {% endfor %}
+      {% endif %}
+    </script>
+
+
+{% endblock content%}   
+{% block script %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoK8GIrOHzHwnzHCyqrdtmTpUWcdrTTD8&callback=initMap" async></script>
+{% endblock script%}
+    

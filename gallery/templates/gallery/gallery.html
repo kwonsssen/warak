@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block style %}
+<link href="{% static 'lib/owl.carousel/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'lib/lightbox2/css/lightbox.css' %}" rel="stylesheet">
+{% endblock style %}
+{% block content %}
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main minh-100vh" id="top">
+  <!-- ============================================-->
+  <!-- Preloader ==================================-->
+  <div class="preloader" id="preloader">
+    <div class="loader">
+      <div class="line-scale-pulse-out-rapid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================-->
+  <!-- End of Preloader ===========================-->
+
+
+  <section class="py-lg-7" id="page-portfolio">
+    <div class="container">
+      <div class="row mb-5 mb-lg-5">
+        <div class="col-lg-6">
+          <h1 class="text-underline d-inline fs-3 fs-md-5">Gallery</h1>
+          <p class="mt-3" style="font-family: HANYheadB;">함께 꿈을 꾸는 와락</p>
+        </div>
+      </div>
+
+      <!--사진 종류별 필터기능-->
+      <div class="sortable minh-75vh" data-options='{"layoutMode":"packery"}'>
+        <div class="menu mb-2">
+          <div class="item active" data-filter="*">전체</div>
+          <div class="item" data-filter=".inside">센터 내 프로그램</div>
+          <div class="item" data-filter=".school">학교 진행 프로그램</div>
+          <div class="item" data-filter=".outside">외부 프로그램</div>
+          <div class="item" data-filter=".others">기타</div>
+        </div>
+        
+
+        <div class="row no-gutters sortable-container sortable-container-gutter-fix">
+          <!-- img와 a태그의 링크를 일치시켜야한다. -f가 붙은 사진은 사이즈가 더큼에 유의 하자.-->
+          
+          {% for img in gallery_list %}
+          <div class="col-6 col-md-3 sortable-item p-2 {{img.classify}}">
+            <div class="hoverbox rounded overflow-hidden" data-zanim-xs='{"animation":"zoom-in"}' data-zanim-trigger="scroll">
+              <img style="width : 263px !important;height:  189px !important;" class="rounded w-100 fit-cover" src="{{img.photo.url}}" alt="" data-zanim-xs='{"animation":"zoom-in","delay":0.1}' data-zanim-trigger="scroll" />
+              <div class="hoverbox-content bg-dark d-flex align-items-center justify-content-center text-center">
+                <div class="px-4">
+                  <!--<h5 class="text-white">책상위에 놓여진 콤파스</h5>-->
+                  <h6 class="text-white">{{img.date|date:"Y.m.d" }}</h6>
+                  <!--
+                  <a class="btn btn-outline-light btn-xs mt-3" href="{% staticimg/gallery/07-f.jpg" data-lightbox="image" data-title="책상위에 놓여진 콤파스">크게보기</a>
+                -->
+                <a class="btn btn-outline-light btn-xs mt-3" href="{{img.photo.url}}" data-lightbox="image">크게보기</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+
+  </section>     
+
+</main>
+<!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'lib/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'lib/isotope-packery/packery-mode.pkgd.min.js' %}"></script>
+<script src="{% static 'lib/owl.carousel/owl.carousel.js' %}"></script>
+<script src="{% static 'lib/lightbox2/js/lightbox.js' %}"></script>
+{% endblock script%}

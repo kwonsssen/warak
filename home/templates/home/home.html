@@ -1,0 +1,352 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block style%}
+<link href="{% static 'lib/owl.carousel/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'lib/lightbox2/css/lightbox.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <script>
+     function initialize() {
+      var myLatlng = new google.maps.LatLng(37.573372, 127.050045);
+      var mapOptions = {
+           zoom: 17,
+           center: myLatlng,
+           mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+      var marker = new google.maps.Marker({
+         position: myLatlng,
+         map: map,
+         title: "동대문 와락"
+        });
+      var infowindow = new google.maps.InfoWindow(
+                 {
+                  content: "<h5>환영합니다.</h5>",
+                  maxWidth: 300
+                 }
+      );
+      
+      google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map, marker);
+      });
+
+
+     }
+
+
+    </script>
+
+    <script>
+
+function Popup(){
+    window.open("{% url 'home:popup' %}","_blank","top=70,left=50,width=400,height=500,toolbar=0,status=0,scrollbars=1,resizable=0");}
+</script>
+{% endblock %}
+
+{% block body %}
+
+{% if popup.is_view %}
+<body class="has-sidemenu overflow-hidden-x" onload="initialize(),Popup()">
+{% else %}
+<body class="has-sidemenu overflow-hidden-x" onload="initialize()">
+{% endif %}
+
+{% endblock body %}
+{% block content %}
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main minh-100vh" id="top">
+
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="py-0 overflow-hidden bg-white" data-zanim-timeline='{"delay":0.4}' data-zanim-trigger="scroll">
+
+        <div class="container-fluid">
+        <div class="devices-wrapper">
+            <div class="macbook-1" data-zanim-xs='{"delay":0.4,"animation":"slide-left","duration":1.5}'>
+            <img class="device parallax" data-rellax-speed="3" src="{% static 'img/main_7.jpg' %}" alt="">
+            </div>
+            <div class="ipad--l-1" data-zanim-xs='{"delay":0.4,"animation":"slide-left","duration":1.5}'>
+            <img class="device parallax" data-rellax-speed="3.8" src="{% static 'img/main_8.jpg' %}" alt="">
+            </div>
+            <div class="iphone-1" data-zanim-xs='{"delay":0.3,"animation":"slide-left","duration":1.5}'>
+            <img class="device parallax" data-rellax-speed="4.8" src="{% static 'img/main_3.jpg' %}" alt="">
+            </div>
+            <div class="ipad--l-2" data-zanim-xs='{"delay":0.2,"animation":"slide-left","duration":1.5}'>
+            <img class="device parallax" data-rellax-speed="3.4" src="{% static 'img/main_2.jpg' %}" alt="">
+            </div>
+            <div class="iphone-2" data-zanim-xs='{"delay":0.1,"animation":"slide-left","duration":1.5}'>
+            <img class="device parallax" data-rellax-speed="4" src="{% static 'img/main_4.jpg' %}" alt="">
+            </div>
+            <div class="macbook-2" data-zanim-xs='{"delay":0.3,"animation":"slide-left","duration":1.5}'>
+            <img class="device parallax" data-rellax-speed="5" src="{% static 'img/main_1.jpg' %}" alt="">
+            </div>
+
+            <div class="ipad--l-3" data-zanim-xs='{"delay":0.5,"animation":"slide-left","duration":1.5}'>
+            <img class="device parallax" data-rellax-speed="3.7" src="{% static 'img/main_9.jpg' %}" alt="">
+            </div>
+            
+            <div class="ipad--p-1" data-zanim-xs='{"delay":0.5,"animation":"slide-left","duration":1.5}'>
+            <img style="height: 27rem !important;width: 30rem !important;" class="device parallax" data-rellax-speed="4.8" src="{% static 'img/main_6.jpg' %}" alt="">
+            </div>
+
+
+        </div>
+        <div class="row py-8 minh-100vh align-items-center">
+            <div class="col-md-auto px-md-4 pl-md-8">
+            <h1 class="display-4 fs-2 fs-sm-4 fs-md-3" style=""><span class="overflow-hidden d-inline-block"><span class="d-inline-block" data-zanim-xs='{"delay":1}'>동대문진로직업체험지원센터<br>'와락'</span>
+                </span>
+            </h1>
+            
+            <div class="mt-3 mt-sm-5">
+                <a class="btn btn-dark btn-sm mr-2 my-2" href="#intro" data-offset="60" data-zanim-xs='{"delay":1.3}'>와락 소개</a>
+                <a class="btn btn-outline-dark btn-sm my-2" href="{% url 'program:index' %}" data-zanim-xs='{"delay":1.3}'>진행 프로그램 확인하기 &xrarr;</a>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- end of .container-->
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+
+
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="text-sans-serif text-center py-6 py-xl-9 bg-dark">
+
+        <div class="container" id="intro">
+        <div class="row justify-content-center">
+            <div class="col-xl-9 col-lg-10">
+                <hr class="hr-short border-500 mt-6">
+                <br>
+                <br>
+            <div class="fs-2 text-500">낮에도 
+                <h3 class="d-inline-block font-weight-bold text-white">꿈을 꾸는 곳</h3>으로
+            </div>
+            <hr class="hr-short border-500 mt-6">
+            </div>
+        </div>
+        </div>
+        <!-- end of .container-->
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+        
+        
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="border-top border-300" id="default-process">
+
+        <div class="container">
+        <div class="row justify-content-center text-center mb-6">
+            <div class="col-lg-6">
+            <h2 class="fs-3 fs-sm-4 text-underline mb-3">와락 둘러보기</h2>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 pl-lg-7">
+            <div class="row align-items-end">
+                <div class="col-lg-6 order-lg-2 text-center">
+                <img class="img-fluid" src="{% static 'img/illustration/process-01.svg' %}" alt="" width="400" />
+                </div>
+                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+                <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
+                    <h3 style="font-family: HANYheadB;">학교지원[자유학기제]</h3>
+                    <br>
+                    <br>
+                    <b style="font-family: HANYheadB;">자유학기제_현장직업체험 청진기</b>
+                    <p style="font-family: HANYheadB;">청소년들이 직장(일터)에서의 다양한 직업체험을 통해 진로를 탐색·설계할 수 있도록 한다.</p>
+                    <b style="font-family: HANYheadB;">찾아가는 학과멘토링</b>
+                    <p style="font-family: HANYheadB;">청소년이 희망하는 대학·학과에 재학 중인 대학생과의 만남, 전공 멘토링 등을 통해 학과특성을 이해하고 진학설계를 돕는다.</p>
+                    <b style="font-family: HANYheadB;">찾아가는 직업인 강연</b>
+                    <p style="font-family: HANYheadB;">직업인 만남, 질의응답 등으로 구성된 교육을 통하여 청소년의 진로 가치관 형성과 미래 설계를 돕는다.</p>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8">
+                <img class="img-fluid" src="{% static 'img/illustration/process-02.svg' %}" alt="" width="400" />
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
+                <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
+                    <h3 style="font-family: HANYheadB;">만나다[직업체험]</h3>
+                    <br>
+                    <br>
+                    <b style="font-family: HANYheadB;">감성JOB기</b>
+                    <p style="font-family: HANYheadB;">문화 예술 분야의 다양한 직업체험 활동을 통해 직업관 형성과 진로성숙도 향상을 돕는다.</p>
+                    <b style="font-family: HANYheadB;">미래 JOB기</b>
+                    <p style="font-family: HANYheadB;">4차 산업혁명 시대가 요구하는 미래직군(3D프린터, 로봇, 코딩, 아두이노, VR전문가 등) 미래기술교육과정을 운영한다.</p>
+                    <b style="font-family: HANYheadB;">창의 JOB기</b>
+                    <p style="font-family: HANYheadB;">1인 기업, 스타트업 등의 창업시대에 맞춰 지속적인 코칭을 제공하여 개개인의 역량 강화와 올바른 직업관 형성을 돕는다.</p>
+                    <b style="font-family: HANYheadB;">그린 JOB</b>
+                    <p style="font-family: HANYheadB;">미래 유망직종 중 하나인 녹색 직업군 소개 및 체험 활동을 제공하여 직업관 형성을 돕는다.</p>
+                    <b style="font-family: HANYheadB;">토요직업체험</b>
+                    <p style="font-family: HANYheadB;">전문직업인을 만나 실질적인 멘토링 및 체험을 통해 자신의 진로의사결정능력을 향상시킨다.</p>
+                    <b style="font-family: HANYheadB;">3일 직업체험(여름방학 특강)</b>
+                    <p style="font-family: HANYheadB;">단기 체험을 통해 직업적성의 발견을 돕고, 진로의사결정능력을 향상시킨다.</p>
+                    <b style="font-family: HANYheadB;">박람회 – 꿈SHOW</b>
+                    <p style="font-family: HANYheadB;">진로교육의 현황과 미래를 종합적으로 제시하여 폭넓은 진로탐색과 심층적 진로설계를 돕는다.</p>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 order-lg-2 text-center align-self-center">
+                <img class="img-fluid" src="{% static 'img/illustration/process-03.svg' %}" alt="" width="400" />
+                </div>
+                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+                <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
+                    <h3 style="font-family: HANYheadB;">만들다[지역특화]</h3>
+                    <br>
+                    <br>
+                    <b style="font-family: HANYheadB;">창의인재역량프로그램</b>
+                    <p style="font-family: HANYheadB;">창의적 인재들과 프로그램을 관내 초,중학교와 직접 연계하여 혁신적 진로교육으로 운영한다.</p>
+                    <b style="font-family: HANYheadB;">동대문드림스타트업</b>
+                    <p style="font-family: HANYheadB;">청소년 사회진출자의 적성과 능력을 고려, 취업과 창업을 유도하고 변화된 직업 환경에 대응하고 성공적 사회진출의 교두보 마련을 지원한다.</p>
+                </div>
+                </div>
+            </div>
+            <div class="row overflow-hidden pb-1">
+                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8">
+                <img class="img-fluid" src="{% static 'img/illustration/process-04.svg' %}" alt="" width="400" />
+                </div>
+                <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
+                <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
+                    <h3 style="font-family: HANYheadB;">마을 네트워크</h3>
+                    <br>
+                    <br>
+                    <b style="font-family: HANYheadB;">직업체험 멘토 협의회</b>
+                    <p style="font-family: HANYheadB;">직업체험 멘토단은 학생들이 희망하는 다양한 직업군을 탐색․ <br>체험할 수 있도록 돕고, 직업가치관과 행복한 미래설계를 지원한다.</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- end of .container-->
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+
+    <section class="py-lg-9" id="page-portfolio">
+        <div class="container">
+            <div class="row mb-5 mb-lg-5">
+                <div class="col-lg-6">
+                <h1 class="text-underline d-inline fs-3 fs-md-5">사진첩</h1>
+                <p class="mt-3" style="font-family: HANYheadB;">함께 꿈을 꾸는 와락</p>
+                </div>
+            </div>     
+            
+            <div class="row no-gutters sortable-container sortable-container-gutter-fix">
+            <!-- img와 a태그의 링크를 일치시켜야한다. -f가 붙은 사진은 사이즈가 더큼에 유의 하자.-->
+            {% for photo in photo_list %}
+            <div class="col-6 col-md-3 sortable-item p-2 interior">
+                <div class="hoverbox rounded overflow-hidden" data-zanim-xs='{"animation":"zoom-in"}' data-zanim-trigger="scroll">
+                <img style="width : 263px !important;height:  189px !important;" style="width : 100% !important;height: 100% !important;" class="rounded w-100 fit-cover" src="{{photo.photo.url}}" alt="" data-zanim-xs='{"animation":"zoom-in","delay":0.1}' data-zanim-trigger="scroll" />
+                <div class="hoverbox-content bg-dark d-flex align-items-center justify-content-center text-center">
+                    <div class="px-4">
+                    <!--<h5 class="text-white">책상위에 놓여진 콤파스</h5>-->
+                    <a class="btn btn-outline-light btn-xs mt-3" href="{{photo.photo.url}}" data-lightbox="image">크게보기</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+                <div style="">
+                    <a style="font-family: HANYheadB;" href="{% url 'gallery:index' %}">사진 더보기</a>
+                </div>
+        </div>
+        </div>
+        <!-- end of .container-->
+
+    </section>     
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section style="" class="bg-light py-7 py-lg-9" id="software-testimonial">
+        <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <h2 class="text-underline fs-4 fs-md-10">함께하는 사람들</h2>
+                {% for employee in employee_list %}
+                <div class="row align-items-center mb-5"><!-- md는 높이(간격)를 뜻한다. -->
+                    <div class="col-sm-auto">
+                    <div class="mx-auto ml-sm-0 mb-4 mb-sm-0">
+                        <img class="avatar avatar-egg" src="{{employee.photo.url}}" alt="" />
+                    </div>
+                    </div>
+                    <div class="col pl-5">
+                    <blockquote class="blockquote" data-zanim-xs='{"delay":0.1}' data-zanim-trigger="scroll">
+                        <div class="h6 fs-0 font-weight-black" style="font-family: HANYheadB;">{{employee.name}}</div>
+                        <div class="h6 text-500" style="font-family: HANYheadB;">{{employee.position}}</div>
+                        <div class="intro_p" style="font-family: HANYheadB;">
+                            {{employee.career|linebreaks}}
+                        </div>
+                    </blockquote>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+        <!-- end of .container-->
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="text-center text-sans-serif" id="digital-partners">
+        <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+            <h3 class="mb-2">와락의 친구들</h3>
+            <p>와락과 동행해 주셔서 감사합니다.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-6">
+            <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center align-items-center">
+                <a href="http://www.ddm.go.kr"><img class="logo-grid" src="{% static 'img/friend/1.jpg' %}" alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center align-items-center">
+                <a href="http://sen.go.kr"><img class="logo-grid" src="{% static 'img/friend/2.jpg' %}" alt="" data-zanim-xs='{"delay":0.2,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center align-items-center mt-4 mt-md-0">
+                <a href="http://dbedu.sen.go.kr/"><img class="logo-grid" src="{% static 'img/friend/3.jpg' %}" alt="" data-zanim-xs='{"delay":0.3,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center align-items-center mt-4 mt-lg-0">
+                <a href="http://www.ggoomgil.go.kr"><img class="logo-grid" src="{% static 'img/friend/4.png' %}" alt="" data-zanim-xs='{"delay":0.4,"animation":"zoom-in"}' data-zanim-trigger="scroll"/></a>
+            
+            </div>
+        </div>
+        </div>
+        <!-- end of .container-->
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+
+
+    
+    <!--인터넷 연결이 되어있는 경우에만 지도가 보입니다-->
+        <div>
+            <div id="map_canvas" style="width:100%; height:500px;"></div>
+        </div>
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'lib/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'lib/isotope-packery/packery-mode.pkgd.min.js' %}"></script>
+<script src="{% static 'lib/owl.carousel/owl.carousel.js' %}"></script>
+<script src="{% static 'lib/lightbox2/js/lightbox.js' %}"></script>
+{% endblock script%}

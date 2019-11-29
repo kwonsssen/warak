@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block style %}
+<link href="{% static 'lib/owl.carousel/owl.carousel.css ' %}" rel="stylesheet">
+<link href="{% static 'lib/lightbox2/css/lightbox.css ' %}" rel="stylesheet">
+<link href="{% static 'css/main.css ' %}" rel="stylesheet">
+{%endblock %}
+{% block content%}
+
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main minh-100vh" id="top">
+  <!-- ============================================-->
+  <!-- <section> begin ============================-->
+  <section class="py-0" id="page-about">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 px-0 order-lg-2">
+          <div class="sticky-top h-lg-100vh py-9">
+            <div class="bg-holder" style="background-image:url({%static 'img/about_warak.jpg' %});" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}'>
+            </div>
+            <!--/.bg-holder-->
+
+          </div>
+        </div>
+        <div class="col-lg-6 bg-white py-6">
+          <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-lg-10">
+              <div class="mb-5">
+                <div class="overflow-hidden">
+                  <h2 class="" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll" style="text-align: left;margin-bottom: 0%;">"와락"</h2>
+                </div>
+              </div>
+              
+              
+              
+                <p class="text_t" style="font-family: HANYheadB;font-size: 120%;">한 아이가 자라기 위해서는<br>온 마을이 필요하다고 합니다.<br>청소년이 자신의 꿈을 펼치기 위해서도<br>주변의 관심과 지원,<br>지지와 격려가 중요합니다. 
+<br>‘와락’은 청소년이 자유롭게꿈꿀 수 있도록응원하겠습니다.<br>꿈꾸는 청소년이 될 수 있도록 함께하겠습니다. <br>꿈을 현실로 이어갈 수 있도록 지원하겠습니다.</p>
+                <p class="d-inline-block text_t" style="font-family: HANYheadB;color:black;"><b>‘같이’의 가치를 실현하는 동대문 와락</b></p>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+
+  </section>
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+
+
+</main>
+<!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+{% endblock %}
